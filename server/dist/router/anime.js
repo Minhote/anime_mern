@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ANIMEROUTER = void 0;
+const express_1 = require("express");
+const controller_1 = require("../controller");
+exports.ANIMEROUTER = (0, express_1.Router)();
+exports.ANIMEROUTER.get("/favorites", controller_1.AnimeController.getFavoritesById);
+exports.ANIMEROUTER.post("/favorites", controller_1.AnimeController.postFavoriteById);
+exports.ANIMEROUTER.delete("/favorites", controller_1.AnimeController.deleteFavoriteById);
+exports.ANIMEROUTER.get("/to-watch", controller_1.AnimeController.getToWatchById);
+exports.ANIMEROUTER.post("/to-watch", controller_1.AnimeController.postToWatchById);
+exports.ANIMEROUTER.delete("/to-watch", controller_1.AnimeController.deleteToWatchById);

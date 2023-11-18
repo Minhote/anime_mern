@@ -1,0 +1,86 @@
+.cardAnime,
+.cardCharacter {
+  --spacing: 10px;
+  width: 200px;
+  background-color: var(--background);
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+  gap: var(--spacing);
+  border-radius: 5px;
+  align-items: start;
+  justify-content: space-between;
+}
+
+:root[data-theme="light"] .cardAnime,
+:root[data-theme="light"] .cardCharacter {
+  background-color: var(--primary);
+  color: var(--background);
+  box-shadow: 0px 0px 10px var(--shade-primary);
+}
+
+.cardAnime {
+  min-height: 450px;
+}
+
+.cardAnime__img-container,
+.cardCharacter__img-container {
+  height: 150px;
+  width: 150px;
+  border-radius: 2px;
+  overflow: hidden;
+  align-self: center;
+}
+
+.cardAnime__img-container__img,
+.cardCharacter__img-container__img {
+  height: inherit;
+  width: inherit;
+  object-fit: fill;
+}
+
+.cardAnime__title,
+.cardCharacter__title {
+  font-weight: 700;
+  font-size: var(--fz-m);
+  color: var(--text);
+}
+
+:root[data-theme="light"] .cardAnime__title,
+:root[data-theme="light"] .cardCharacter__title {
+  color: var(--secondary);
+}
+
+.cardAnime__episodes {
+  font-weight: 500;
+  font-size: var(--fz-m);
+}
+
+.cardAnime__genre-list {
+  min-height: 100px;
+}
+
+.cardAnime__genre-list__item {
+  list-style: none;
+  font-size: var(--fz-m);
+  font-weight: 300;
+}
+
+.cardAnime__btn,
+.cardCharacter__btn {
+  --spacing-y: 10px 0;
+  background-color: var(--accent);
+  color: var(--text);
+  width: 100%;
+  border: none;
+  padding: var(--spacing-y);
+  font-family: var(--bitter);
+  border-radius: 5px;
+  font-size: var(--fz-m);
+}
+
+:root[data-theme="light"] .cardAnime__btn,
+:root[data-theme="light"] .cardCharacter__btn {
+  background-color: var(--secondary);
+  color: var(--shade-primary);
+}

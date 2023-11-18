@@ -1,0 +1,53 @@
+:root {
+  /* Fonts */
+  --monserrat: "Montserrat", sans-serif;
+  --bitter: "Bitter", serif;
+
+  /* Font Size */
+  --fz-xl: clamp(1.6rem, 0.8rem + 2vw, 2.8rem);
+  --fz-l: clamp(1.4rem, 0.733rem + 1.667vw, 2.4rem);
+  --fz-m: clamp(1.2rem, 0.667rem + 1.333vw, 2rem);
+  --fz-s: clamp(1rem, 0.467rem + 1.333vw, 1.8rem);
+
+  /* Spacing */
+  --spacing: 2rem;
+  --spacing-x: 0 2rem;
+  --spacing-y: 2rem 0;
+}
+
+:root[data-theme="light"] {
+  --text: hsl(56, 41%, 8%);
+  --shade-text: hsl(56, 40%, 15%);
+  --background: hsl(54, 43%, 91%);
+  --shade-background: hsl(53, 43%, 15%);
+  --primary: hsl(234, 42%, 30%);
+  --shade-primary: hsl(234, 42%, 15%);
+  --secondary: hsl(55, 43%, 89%);
+  --shade-secondary: hsl(55, 43%, 15%);
+  --accent: hsl(235, 43%, 49%);
+  --shade-accent: hsl(235, 43%, 15%);
+}
+:root[data-theme="dark"] {
+  --text: hsl(56, 41%, 92%);
+  --shade-text: hsl(56, 40%, 15%);
+  --background: hsl(54, 43%, 9%);
+  --shade-background: hsl(53, 43%, 15%);
+  --primary: hsl(234, 42%, 70%);
+  --shade-primary: hsl(234, 42%, 15%);
+  --secondary: hsl(55, 43%, 11%);
+  --shade-secondary: hsl(55, 43%, 15%);
+  --accent: hsl(235, 43%, 51%);
+  --shade-accent: hsl(235, 43%, 15%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+}

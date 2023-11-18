@@ -1,0 +1,67 @@
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing);
+  flex-direction: column;
+  background-color: var(--secondary);
+  padding: var(--spacing);
+  width: 50vw;
+  border-radius: 5px;
+}
+
+.welcome__title {
+  font-size: var(--fz-xl);
+  font-weight: 700;
+  font-family: var(--monserrat);
+  color: var(--text);
+}
+
+.welcome__para {
+  font-size: var(--fz-l);
+  font-weight: 500;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.welcome__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing);
+}
+
+.welcome__actions__sign_up,
+.welcome__actions__log_in {
+  --spacing-x: 1rem 2rem;
+  padding: var(--spacing-x);
+  font-family: var(--bitter);
+  outline: none;
+  border: none;
+  color: var(--text);
+  font-weight: 500;
+  font-size: var(--fz-l);
+  border-radius: 5px;
+}
+
+.welcome__actions__sign_up {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+.welcome__actions__log_in {
+  background-color: var(--background);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.welcome__actions__log_in:hover {
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+@media (max-width: 600px) {
+  .welcome {
+    width: 80vw;
+  }
+}
