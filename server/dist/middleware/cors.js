@@ -14,6 +14,7 @@ const middlewareCORS = () => (0, cors_1.default)({
             "http://localhost:5173",
             "http://127.0.0.1:5173",
             "http://ellocoqueama.com",
+            "https://anime-mern-api.vercel.app",
         ];
         if (!origin) {
             return callback(null, true);
