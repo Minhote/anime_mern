@@ -11,7 +11,7 @@
   },
   "name": "server",
   "version": "1.0.0",
-  "main": "./dist/index.js",
+  "main": "./dist",
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
     "@types/cors": "^2.8.14",
@@ -22,7 +22,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "node --watch ./dist/index.js & npx tsc --watch",
-    "start": "node ./dist/index.js",
+    "start": "node dist/index.js",
     "build": "tsc"
   },
   "keywords": [],
