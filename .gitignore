@@ -5,4 +5,3 @@
 /server/.env
 /server/node_modules
 /server/.vercel
-/server/dist
