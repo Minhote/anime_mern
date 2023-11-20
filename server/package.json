@@ -23,7 +23,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "node --watch ./dist/index.js & npx tsc --watch",
     "start": "node ./dist/index.js",
-    "build-ts": "tsc"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
