@@ -5,17 +5,17 @@ import { AnimeFavoriteDB, Datatypes } from "../types";
 import axios, { isAxiosError } from "axios";
 import { useAuthStore } from "../store/auth";
 import { useAnimeFavoritesStore } from "../store/animeFavorites";
+import { URLDBAPI } from "../api/url";
 
 export default function AnimeFavorites() {
   const [isLoading, setIsLoading] = useState(false);
   const { userLogged } = useAuthStore();
   const { animesFavorites, pushAnimeFavorite } = useAnimeFavoritesStore();
-  // Toda la funcionalidad del front y back esta en orden, estaria de mejorar el tema de la rerenderizacion innecesaria, si es posible solucionar eso y el projecto quedaría de 10
 
   useEffect(() => {
     async function getAnimeFavorites() {
       setIsLoading((v) => !v);
-      const resp = await axios.get("http://localhost:3000/animes/favorites", {
+      const resp = await axios.get(`${URLDBAPI}/animes/favorites`, {
         params: { id: userLogged._id },
       });
 
@@ -36,8 +36,6 @@ export default function AnimeFavorites() {
 
     fetchAnimeFavorites();
   }, []);
-
-  console.log(animesFavorites, "Render");
 
   return (
     <>

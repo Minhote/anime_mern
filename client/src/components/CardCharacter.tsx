@@ -4,6 +4,7 @@ import { useAuthStore } from "../store/auth";
 import { CharacterDataDB } from "../types";
 import { toast } from "sonner";
 import { useCharactersFavoritesStore } from "../store/charactersFavorites";
+import { URLDBAPI } from "../api/url";
 
 type CardCharactersProps = CharacterDataDB & { type: "show" | "search" };
 
@@ -51,7 +52,7 @@ const CardCharacter: React.FC<CardCharactersProps> = ({
                 data:
                   | { message: string }
                   | { message: string; result: CharacterDataDB };
-              } = await axios.post("http://localhost:3000/characters", {
+              } = await axios.post(`${URLDBAPI}/characters`, {
                 obj,
                 userId: userLogged._id,
               });
@@ -70,10 +71,9 @@ const CardCharacter: React.FC<CardCharactersProps> = ({
           } else {
             //Lógica para borrar
 
-            const { data } = await axios.delete(
-              "http://localhost:3000/characters",
-              { params: { mal_id, userId: userLogged._id } }
-            );
+            const { data } = await axios.delete(`${URLDBAPI}/characters`, {
+              params: { mal_id, userId: userLogged._id },
+            });
 
             toast.success(data.message);
             deleteCharactersFavorites(mal_id);

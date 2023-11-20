@@ -5,6 +5,7 @@ import { AnimeFavoriteDB, Datatypes } from "../types";
 import { useAuthStore } from "../store/auth";
 import axios, { isAxiosError } from "axios";
 import { useAnimeForWatchStore } from "../store/animesForWatch";
+import { URLDBAPI } from "../api/url";
 
 export default function AnimeForWatch() {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +15,7 @@ export default function AnimeForWatch() {
   useEffect(() => {
     async function getAnimeForWatch(id: string) {
       setIsLoading((v) => !v);
-      const resp = await axios.get("http://localhost:3000/animes/to-watch", {
+      const resp = await axios.get(`${URLDBAPI}/animes/to-watch`, {
         params: { id },
       });
 

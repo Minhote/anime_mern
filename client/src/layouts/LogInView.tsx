@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/auth";
 import Cookie from "js-cookie";
 import { Header, Main } from "../components";
+import { URLDBAPI } from "../api/url";
 
 export default function LogInView() {
   const { setAuthIn } = useAuthStore();
@@ -29,7 +30,7 @@ export default function LogInView() {
         const {
           data: { message, user, token },
         }: { data: AuthenticatedResponse } = await axios.post(
-          "http://localhost:3000/user/login",
+          `${URLDBAPI}/user/login`,
           body
         );
 

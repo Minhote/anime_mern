@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuthStore } from "../store/auth";
 import Cookie from "js-cookie";
 import { Header, Main } from "../components";
+import { URLDBAPI } from "../api/url";
 
 export default function SignUpView() {
   const { setAuthIn } = useAuthStore();
@@ -30,7 +31,7 @@ export default function SignUpView() {
         const {
           data: { message, token, user },
         }: { data: AuthenticatedResponse } = await axios.post(
-          "http://localhost:3000/user/register",
+          `${URLDBAPI}/user/register`,
           body
         );
 

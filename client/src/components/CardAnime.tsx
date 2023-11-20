@@ -5,6 +5,7 @@ import { AnimeFavoriteDB } from "../types";
 import { useAnimeFavoritesStore } from "../store/animeFavorites";
 import { toast } from "sonner";
 import { useAnimeForWatchStore } from "../store/animesForWatch";
+import { URLDBAPI } from "../api/url";
 
 type CardAnimeProps = AnimeFavoriteDB & { type: "search" | "show" };
 
@@ -68,15 +69,12 @@ const CardAnime: React.FC<CardAnimeProps> = ({
                     data:
                       | { message: string }
                       | { message: string; result: object };
-                  } = await axios.post(
-                    "http://localhost:3000/animes/favorites",
-                    obj
-                  );
+                  } = await axios.post(`${URLDBAPI}/animes/favorites`, obj);
 
                   // Luego de agregar favorito, actualiza el estado global
                   if ("result" in data) {
                     const res = await axios.get(
-                      "http://localhost:3000/animes/favorites",
+                      `${URLDBAPI}/animes/favorites`,
                       {
                         params: { id: userLogged._id },
                       }
@@ -98,12 +96,9 @@ const CardAnime: React.FC<CardAnimeProps> = ({
                     data:
                       | { message: string }
                       | { message: string; result: object };
-                  } = await axios.delete(
-                    `http://localhost:3000/animes/favorites`,
-                    {
-                      params: { mal_id, userid: userLogged._id },
-                    }
-                  );
+                  } = await axios.delete(`${URLDBAPI}/animes/favorites`, {
+                    params: { mal_id, userid: userLogged._id },
+                  });
 
                   deleteAnimeFavorite(obj);
 
@@ -138,10 +133,10 @@ const CardAnime: React.FC<CardAnimeProps> = ({
                     data:
                       | { message: string }
                       | { message: string; result: AnimeFavoriteDB };
-                  } = await axios.post(
-                    "http://localhost:3000/animes/to-watch",
-                    { obj, userObj }
-                  );
+                  } = await axios.post(`${URLDBAPI}/animes/to-watch`, {
+                    obj,
+                    userObj,
+                  });
 
                   if ("result" in data) {
                     toast.success(data.message);
@@ -155,7 +150,7 @@ const CardAnime: React.FC<CardAnimeProps> = ({
               } else if (type === "show") {
                 try {
                   const { data } = await axios.delete(
-                    "http://localhost:3000/animes/to-watch",
+                    `${URLDBAPI}/animes/to-watch`,
                     {
                       params: {
                         id: mal_id,
