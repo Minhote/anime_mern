@@ -14,6 +14,7 @@ export const middlewareCORS = () =>
         "http://127.0.0.1:5173",
         "http://ellocoqueama.com",
         "https://anime-mern-api.vercel.app",
+        "https://anime-mern-client.vercel.app",
       ];
 
       if (!origin) {
